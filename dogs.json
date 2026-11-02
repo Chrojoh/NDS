@@ -17707,7 +17707,7 @@
             "secondInches": 9
           },
           {
-            "date": "2013-08-11",
+            "date": "2023-08-11",
             "event": "WCC Long Jump 1",
             "division": "Master",
             "placement": 13,
@@ -17736,7 +17736,14 @@
             "bestFeet": 20,
             "bestInches": 6,
             "secondFeet": 19,
-            "secondInches": 0
+            "secondInches": 0,
+            "dateOriginal": "2013-08-11",
+            "dateCorrection": {
+              "status": "provisional_owner_approved",
+              "reason": "User requested year 2023 to align event scores; original source date preserved; reversible.",
+              "originalDate": "2013-08-11",
+              "correctedDate": "2023-08-11"
+            }
           },
           {
             "date": "2023-08-11",
@@ -56401,7 +56408,7 @@
             "retrieve3": 26
           },
           {
-            "date": "2012-08-13",
+            "date": "2023-08-13",
             "event": "WCC",
             "division": "Junior",
             "placement": 8,
@@ -56431,7 +56438,14 @@
             "time": 44.54,
             "retrieve1": 21,
             "retrieve2": 24,
-            "retrieve3": 20
+            "retrieve3": 20,
+            "dateOriginal": "2012-08-13",
+            "dateCorrection": {
+              "status": "provisional_owner_approved",
+              "reason": "User requested year 2023 to align event scores; original source date preserved; reversible.",
+              "originalDate": "2012-08-13",
+              "correctedDate": "2023-08-13"
+            }
           }
         ],
         "rampHistory": [],

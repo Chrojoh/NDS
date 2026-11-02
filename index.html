@@ -1324,7 +1324,15 @@ function renderAnnualTable(title, entries, sport, year) {
   let html = '';
 
   // ── Overall ──
-  html += buildRankTableInner(title + ' — Overall', entries, sport, true, year);
+  const activeFilters = [
+    currentAnnualSport !== 'shed' && annualClassFilter,
+    annualBreedFilter,
+    isAnnualDockSport() && annualDivisionFilter,
+    currentAnnualSport === 'shed' && annualLevelFilter && 'Level '+annualLevelFilter,
+    ['dock','lj','ss'].includes(currentAnnualSport) && annualCategoryFilter === 'ramp' && 'Ramp'
+  ].filter(Boolean).map(v=>v==='__unknown__'?'Not recorded':v);
+  const scopeLabel = activeFilters.length ? 'Filtered: '+activeFilters.map(escapeRankOption).join(' · ') : 'Overall';
+  html += buildRankTableInner(title + ' — ' + scopeLabel, entries, sport, true, year);
 
   // ── By Class (using year-correct class) ──
   const classMap = {};
@@ -1333,7 +1341,7 @@ function renderAnnualTable(title, entries, sport, year) {
     if (c) { if (!classMap[c]) classMap[c] = []; classMap[c].push(e); }
   });
   Object.keys(classMap).sort().forEach(cls => {
-    if (classMap[cls].length > 1)
+    if (classMap[cls].length > 1 && !(currentAnnualSport !== 'shed' && annualClassFilter))
       html += buildRankTableInner(title + ' — ' + cls, classMap[cls], sport, false, year);
   });
 
@@ -1341,7 +1349,7 @@ function renderAnnualTable(title, entries, sport, year) {
   const breeds = [...new Set(entries.map(e => rankingBreed(e.dog.breed)).filter(Boolean))].sort();
   breeds.forEach(breed => {
     const inBreed = entries.filter(e => rankingBreed(e.dog.breed) === breed);
-    if (inBreed.length > 1)
+    if (inBreed.length > 1 && !annualBreedFilter)
       html += buildRankTableInner(title + ' — ' + breed, inBreed, sport, true, year);
   });
 

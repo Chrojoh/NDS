@@ -204,8 +204,14 @@ tr:last-child td{border-bottom:none;}
 .rank-table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:16px;}
 .rank-table-title{padding:12px 14px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--border);}
 .rank-table{width:100%;min-width:480px;border-collapse:collapse;font-size:13px;}
-.rank-table th{white-space:nowrap;text-align:left;padding:8px 12px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--border);}
-.rank-table td{padding:9px 12px;border-bottom:0.5px solid var(--surface2);}
+.rank-table th{white-space:nowrap;text-align:left;padding:8px 6px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--border);}
+.rank-table td{padding:9px 6px;border-bottom:0.5px solid var(--surface2);}
+.rank-table th:first-child,.rank-table td:first-child{padding-left:10px;}
+.rank-table th:last-child,.rank-table td:last-child{padding-right:10px;}
+.rank-table .rank-pts{width:1%;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.rank-table td:nth-child(2){overflow-wrap:anywhere;}
+.rank-table-dock th:nth-child(n+3){width:1%;}
+.rank-table-dock td:last-child{width:1%;white-space:nowrap;}
 .rank-table tr:last-child td{border-bottom:none;}
 .rank-table tr:hover td{background:var(--surface2);}
 .rank-num{font-weight:700;color:var(--muted);width:30px;}
@@ -1377,23 +1383,25 @@ function renderAnnualTable(title, entries, sport, year) {
 function buildRankTableInner(title, entries, sport, showClass, year) {
   if (!entries.length) return '';
   const rampRanking = isRampRanking();
+  const showDockComponents = sport === 'dock' && !rampRanking;
   const showMetric = !rampRanking && ['tr','tr_speed','ss','lj','gj','ff'].includes(sport);
   const metricHeader = sport==='tr'||sport==='tr_speed' ? 'Speed (km/h)' : sport==='ss' ? 'Best Time' : sport==='lj'||sport==='gj' ? 'Best Distance' : sport==='ff' ? 'Best Score' : 'Total Pts';
   let html = `<div class="rank-table-wrap">
     <div class="rank-table-title">${title}</div>
-    <table class="rank-table">
-      <thead><tr><th>#</th><th>Dog</th><th style="text-align:right">${rampRanking ? 'Qualifying runs' : 'Pts'}</th>${rampRanking ? '<th>Review</th>' : ''}${showMetric ? `<th style="text-align:right">${metricHeader}</th>` : ''}</tr></thead><tbody>`;
+    <table class="rank-table${showDockComponents ? ' rank-table-dock' : ''}">
+      <thead><tr><th>#</th><th>Dog</th><th style="text-align:right">${rampRanking ? 'Qualifying runs' : showDockComponents ? 'Total' : 'Pts'}</th>${showDockComponents ? '<th style="text-align:right">LJ</th><th style="text-align:right">SS</th><th style="text-align:right">FF</th><th style="text-align:right">GJ</th><th>Class</th>' : ''}${rampRanking ? '<th>Review</th>' : ''}${showMetric ? `<th style="text-align:right">${metricHeader}</th>` : ''}</tr></thead><tbody>`;
   entries.slice(0, 25).forEach((e, i) => {
     const rank = i + 1;
     const cls = rank <= 3 ? 'rank-' + rank : '';
     const metric = formatAnnualMetric(e, sport);
     const dogClass = year ? annualClassForYear(e.dog, year) : (e.dog.class || '');
-    const classBadge = showClass && dogClass ? `<span class="rank-class-badge">${dogClass}</span>` : '';
+    const classBadge = showClass && !showDockComponents && dogClass ? `<span class="rank-class-badge">${dogClass}</span>` : '';
     const breedSub = e.dog.breed ? `<div class="rank-sub">${e.dog.breed}</div>` : '';
     html += `<tr class="${cls}">
       <td class="rank-num">${ordinal(rank)}</td>
       <td><span class="rank-dog-name">${e.dog.name}</span>${classBadge}${breedSub}</td>
       <td class="rank-pts">${Number(e.totalPts ?? 0).toFixed(rampRanking ? 0 : 2)}</td>
+      ${showDockComponents ? ['ljPts','ssPts','ffPts','gjPts'].map(key=>`<td class="rank-pts">${Number(e[key] ?? 0).toFixed(2)}</td>`).join('') + `<td>${escapeRankOption(dogClass || 'Not recorded')}</td>` : ''}
       ${rampRanking ? `<td>${e.pendingQualification || 0}</td>` : ''}
       ${showMetric ? `<td class="rank-pts" style="color:var(--muted)">${metric}</td>` : ''}
     </tr>`;

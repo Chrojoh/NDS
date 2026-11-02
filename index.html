@@ -201,10 +201,10 @@ tr:last-child td{border-bottom:none;}
 .year-btn{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--border);color:var(--muted);background:var(--surface);transition:all 0.15s;}
 .year-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
 
-.rank-table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px;}
+.rank-table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:16px;}
 .rank-table-title{padding:12px 14px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--border);}
-.rank-table{width:100%;border-collapse:collapse;font-size:13px;}
-.rank-table th{text-align:left;padding:8px 12px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--border);}
+.rank-table{width:100%;min-width:480px;border-collapse:collapse;font-size:13px;}
+.rank-table th{white-space:nowrap;text-align:left;padding:8px 12px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--border);}
 .rank-table td{padding:9px 12px;border-bottom:0.5px solid var(--surface2);}
 .rank-table tr:last-child td{border-bottom:none;}
 .rank-table tr:hover td{background:var(--surface2);}
@@ -987,15 +987,23 @@ function renderEventDetail(el, sport, eventKey) {
     if (dogBest) weekendBest.push({dog, run: dogBest});
   });
 
-  // Sort weekend best
-  weekendBest.sort((a,b) => getRankValue(b.run, sport) - getRankValue(a.run, sport));
+  // A single-event Dock page ranks its actual measurement, not title points.
+  const eventSports = [...new Set(weekendBest.map(e=>e.run._sub).filter(Boolean))];
+  const weekendSport = sport === 'dock' && eventSports.length === 1 ? eventSports[0] : sport;
+  if (weekendSport !== sport) {
+    weekendBest.forEach(entry => {
+      const matching = getRunsForSport(entry.dog,sport).filter(r=>r.date?.slice(0,7)===yearMonth && normalizeEventName(r.event||'')===weekendName);
+      entry.run = matching.reduce((best,r)=>getRankValue(r,weekendSport)>getRankValue(best,weekendSport)?r:best,entry.run);
+    });
+  }
+  weekendBest.sort((a,b) => getRankValue(b.run, weekendSport) - getRankValue(a.run, weekendSport));
 
   let html = `<div class="event-detail-back" onclick="eventDetailState=null;renderRankings()">← Back to events</div>`;
   html += `<div style="font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:4px;">${weekendName}</div>`;
   html += `<div style="font-size:13px;color:var(--muted);margin-bottom:16px;">${yearMonth}</div>`;
 
   // Weekend best table
-  html += renderLeaderboard(sport === 'dock' ? 'Highest single-run title points — Dock Diving' : 'Weekend Best — ' + sportLabel(sport), weekendBest, sport, true);
+  html += renderLeaderboard(weekendSport === 'dock' ? 'Highest single-run title points — Dock Diving' : 'Best recorded performance — ' + sportLabel(weekendSport), weekendBest, weekendSport, true);
 
   // Per-round tables
   const roundKeys = Object.keys(rounds).sort();
@@ -1050,13 +1058,14 @@ function sportLabel(sport) {
 function renderLeaderboard(title, entries, sport, showSub) {
   if (!entries.length) return '';
   const metric = getMetricLabel(sport);
+  const showPlacement = ['dock','lj','ss','gj','ff'].includes(sport);
   let html = `<div class="rank-table-wrap">
     <div class="rank-table-title">${title}</div>
     <table class="rank-table">
       <thead><tr>
-        <th>#</th><th>Dog</th>`;
+        <th>Order</th><th>Dog</th>`;
   if (showSub) html += `<th>Event</th>`;
-  html += `<th style="text-align:right">${metric}</th></tr></thead><tbody>`;
+  html += `<th style="text-align:right">${metric}</th>${showPlacement ? '<th>Recorded division</th><th>Recorded place</th>' : ''}</tr></thead><tbody>`;
 
   entries.slice(0,10).forEach((entry, i) => {
     const rank = i + 1;
@@ -1069,7 +1078,7 @@ function renderLeaderboard(title, entries, sport, showSub) {
         ${entry.dog.breed ? '<div class="rank-sub">'+entry.dog.breed+'</div>' : ''}
       </td>`;
     if (showSub) html += `<td class="rank-sub">${sport === 'dock' ? sportLabel(entry.run._sub) + ' · ' : ''}${entry.run.event||'—'}</td>`;
-    html += `<td class="rank-pts">${val}</td></tr>`;
+    html += `<td class="rank-pts">${val}</td>${showPlacement ? `<td>${escapeRankOption(entry.run.division||'Not recorded')}</td><td>${entry.run.placement ? escapeRankOption(entry.run.placement) : '—'}</td>` : ''}</tr>`;
   });
 
   html += '</tbody></table></div>';
@@ -1173,6 +1182,14 @@ function getAnnualRuns(dog, sport) {
   if (sport === 'dock') return ['lj','ss'].flatMap(sub=>(dog.dock?.[sub]?.rampHistory||[]).map(r=>({...r,_sub:sub})));
   return dog.dock?.[sport]?.rampHistory || [];
 }
+function isRampRanking() {
+  return annualCategoryFilter === 'ramp' && ['dock','lj','ss'].includes(currentAnnualSport);
+}
+function annualRunPoints(run, sport) {
+  if (isRampRanking()) return run.rampAnnualQualifying === true ? 1 : 0;
+  if (sport === 'shed') return (run.qualifying === 'Y' ? 10 : 0) + (run.winPts || 0);
+  return (run.pts || 0) + (run.win || 0);
+}
 function rankingDivision(value) {
   const match = String(value||'').trim().match(/^(?:(?:vet|veteran|small|large|open)\s+)*(novice|junior|senior|master|elite|premier)$/i);
   return match ? match[1][0].toUpperCase()+match[1].slice(1).toLowerCase() : '';
@@ -1206,13 +1223,13 @@ function annualFilterControls() {
     ${currentAnnualSport !== 'shed' ? select('class',classes,annualClassFilter) : ''}
     ${select('breed',breeds,annualBreedFilter)}
     ${isAnnualDockSport() ? select('division',divisions,annualDivisionFilter) : ''}
-    ${currentAnnualSport === 'shed' ? select('level',levels,annualLevelFilter,false) : ''}
+    ${currentAnnualSport === 'shed' ? select('level',levels,annualLevelFilter,false) + '<span>Annual points = 10 × qualifying runs + win points.</span>' : ''}
     ${['dock','lj','ss'].includes(currentAnnualSport) ? `<label>Category <select aria-label="Filter annual rankings by category" onchange="setAnnualFilter('category',this.value)"><option value="regular" ${annualCategoryFilter==='regular'?'selected':''}>Regular</option><option value="ramp" ${annualCategoryFilter==='ramp'?'selected':''}>Ramp</option></select></label>` : ''}
     <button type="button" class="year-btn" onclick="resetAnnualFilters()">Clear filters</button>
     ${active.length ? `<span>Filters: ${active.map(v=>escapeRankOption(v==='__unknown__'?'Not recorded':v)).join(' · ')}</span>` : ''}
     ${isAnnualDockSport()&&annualDivisionFilter ? `<span>Points from ${escapeRankOption(annualDivisionFilter==='__unknown__'?'unrecorded division':annualDivisionFilter)} runs only.</span>` : ''}
-    ${currentAnnualSport==='shed'&&annualLevelFilter ? `<span>Win points from Level ${escapeRankOption(annualLevelFilter)} runs only.</span>` : ''}
-    ${isAnnualDockSport()&&annualCategoryFilter==='ramp' ? '<span>Ramp results only.</span>' : ''}
+    ${currentAnnualSport==='shed'&&annualLevelFilter ? `<span>Annual points from Level ${escapeRankOption(annualLevelFilter)} runs only: 10 per qualifier plus win points.</span>` : ''}
+    ${isAnnualDockSport()&&annualCategoryFilter==='ramp' ? '<span>Ramp qualifying-round counts; Finals excluded. Conflicting records are excluded from the count and shown under Review.</span>' : ''}
   </div>`;
 }
 
@@ -1222,7 +1239,7 @@ function selectAnnualSort(sort) {
 }
 function orderAnnualEntries(entries, sport) {
   const ordered = [...entries];
-  if (currentAnnualSort === 'points') return ordered.sort((a,b) => b.totalPts-a.totalPts);
+  if (currentAnnualSort === 'points' || isRampRanking()) return ordered.sort((a,b) => b.totalPts-a.totalPts);
   if (sport === 'tr' || sport === 'tr_speed') return ordered.sort((a,b) => (b.topSpeed||0)-(a.topSpeed||0));
   if (sport === 'ss') return ordered.sort((a,b) => (a.bestTime ?? Infinity)-(b.bestTime ?? Infinity));
   if (sport === 'lj' || sport === 'gj') return ordered.sort((a,b) => (b.bestDist||0)-(a.bestDist||0));
@@ -1256,7 +1273,7 @@ function renderAnnualRankings() {
     let ljPts=0, ssPts=0, gjPts=0, ffPts=0;
 
     runs.forEach(r => {
-      const p = sport === 'shed' ? (r.winPts||0) : (r.pts||0) + (r.win||0);
+      const p = annualRunPoints(r, sport);
       totalPts += p;
       if (r._sub==='lj'||sport==='lj') { ljPts += p; const d=(r.bestFeet||0)*12+(r.bestInches||0); if(d>bestDist) bestDist=d; }
       if (r._sub==='ss'||sport==='ss') { ssPts += p; if(r.time && r.time < bestTime) bestTime=r.time; }
@@ -1274,6 +1291,7 @@ function renderAnnualRankings() {
       bestTime: bestTime === Infinity ? null : bestTime,
       bestScore,
       runs: runs.length,
+      pendingQualification: runs.filter(r=>r.rampQualifying === null).length,
     };
   }).filter(Boolean);
 
@@ -1285,14 +1303,14 @@ function renderAnnualRankings() {
   // Sort by total pts
   dogTotals.sort((a,b) => b.totalPts - a.totalPts);
 
-  const metricLabel = sport === 'tr' ? 'Speed' : sport === 'shed' ? '' : sport === 'ss' ? 'Swim time' : sport === 'lj' || sport === 'gj' ? 'Distance' : sport === 'ff' ? 'Score' : 'Best performance';
+  const metricLabel = isRampRanking() ? '' : sport === 'tr' ? 'Speed' : sport === 'shed' ? '' : sport === 'ss' ? 'Swim time' : sport === 'lj' || sport === 'gj' ? 'Distance' : sport === 'ff' ? 'Score' : 'Best performance';
   let html = `${annualFilterControls()}
-  <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:12px 0;text-align:center" role="group" aria-label="Annual ranking order">
+  ${metricLabel ? `<div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:12px 0;text-align:center" role="group" aria-label="Annual ranking order">
     <span>Sort by:</span>
     <button type="button" class="year-btn ${currentAnnualSort==='points'?'active':''}" aria-pressed="${currentAnnualSort==='points'}" onclick="selectAnnualSort('points')">${sport === 'shed' ? 'Win Points' : 'Points'}</button>
     ${metricLabel ? `<button type="button" class="year-btn ${currentAnnualSort==='performance'?'active':''}" aria-pressed="${currentAnnualSort==='performance'}" onclick="selectAnnualSort('performance')">${metricLabel}</button>` : ''}
     <span style="flex-basis:100%;color:var(--muted);font-size:12px">Highest first; swim times fastest first. Ties retain their existing order.</span>
-  </div>`;
+  </div>` : ''}`;
 
   if (sport === 'dock') {
     // Overall combined
@@ -1302,11 +1320,11 @@ function renderAnnualRankings() {
       const subTotals = allDogs.map(dog => {
         const runs = getAnnualRuns(dog,sub).filter(r => getYear(r.date) === currentYear && matchesAnnualRun(r));
         if (!runs.length) return null;
-        const pts = runs.reduce((s,r) => s + (r.pts||0) + (r.win||0), 0);
+        const pts = runs.reduce((s,r) => s + annualRunPoints(r,sub), 0);
         const bestDist = sub==='lj' ? Math.max(...runs.map(r=>(r.bestFeet||0)*12+(r.bestInches||0))) : (sub==='gj' ? Math.max(...runs.map(r=>r.best||0)) : 0);
         const bestTime = sub==='ss' ? Math.min(...runs.map(r=>r.time||999)) : null;
         const bestScore = sub==='ff' ? Math.max(...runs.map(r=>r.totalPts||0)) : 0;
-        return {dog, totalPts:pts, bestDist, bestTime:bestTime===999?null:bestTime, bestScore, runs:runs.length};
+        return {dog, totalPts:pts, bestDist, bestTime:bestTime===999?null:bestTime, bestScore, runs:runs.length, pendingQualification:runs.filter(r=>r.rampQualifying===null).length};
       }).filter(Boolean).sort((a,b)=>b.totalPts-a.totalPts);
       if (subTotals.length) html += renderAnnualTable(sportLabel(sub)+' — '+currentYear, subTotals, sub, currentYear);
     });
@@ -1358,12 +1376,13 @@ function renderAnnualTable(title, entries, sport, year) {
 
 function buildRankTableInner(title, entries, sport, showClass, year) {
   if (!entries.length) return '';
-  const showMetric = ['tr','tr_speed','ss','lj','gj','ff'].includes(sport);
-  const metricHeader = sport==='tr_speed' ? 'Top Speed' : sport==='ss' ? 'Best Time' : sport==='lj'||sport==='gj' ? 'Best Distance' : sport==='ff' ? 'Best Score' : 'Total Pts';
+  const rampRanking = isRampRanking();
+  const showMetric = !rampRanking && ['tr','tr_speed','ss','lj','gj','ff'].includes(sport);
+  const metricHeader = sport==='tr'||sport==='tr_speed' ? 'Speed (km/h)' : sport==='ss' ? 'Best Time' : sport==='lj'||sport==='gj' ? 'Best Distance' : sport==='ff' ? 'Best Score' : 'Total Pts';
   let html = `<div class="rank-table-wrap">
     <div class="rank-table-title">${title}</div>
     <table class="rank-table">
-      <thead><tr><th>#</th><th>Dog</th><th style="text-align:right">${sport === 'shed' ? 'Win Pts' : 'Pts'}</th>${showMetric ? `<th style="text-align:right">${metricHeader}</th>` : ''}</tr></thead><tbody>`;
+      <thead><tr><th>#</th><th>Dog</th><th style="text-align:right">${rampRanking ? 'Qualifying runs' : 'Pts'}</th>${rampRanking ? '<th>Review</th>' : ''}${showMetric ? `<th style="text-align:right">${metricHeader}</th>` : ''}</tr></thead><tbody>`;
   entries.slice(0, 25).forEach((e, i) => {
     const rank = i + 1;
     const cls = rank <= 3 ? 'rank-' + rank : '';
@@ -1374,7 +1393,8 @@ function buildRankTableInner(title, entries, sport, showClass, year) {
     html += `<tr class="${cls}">
       <td class="rank-num">${ordinal(rank)}</td>
       <td><span class="rank-dog-name">${e.dog.name}</span>${classBadge}${breedSub}</td>
-      <td class="rank-pts">${Number(e.totalPts ?? 0).toFixed(2)}</td>
+      <td class="rank-pts">${Number(e.totalPts ?? 0).toFixed(rampRanking ? 0 : 2)}</td>
+      ${rampRanking ? `<td>${e.pendingQualification || 0}</td>` : ''}
       ${showMetric ? `<td class="rank-pts" style="color:var(--muted)">${metric}</td>` : ''}
     </tr>`;
   });

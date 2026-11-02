@@ -769,20 +769,26 @@ function matchesDog(dog, q) {
   if (q.length < 3) return false;
   return dog.name.toLowerCase().includes(q);
 }
+let searchStarted = false;
 function renderDogList(dogs, query) {
   const list = document.getElementById('dogList');
   const welcomeSection = document.getElementById('welcomeSection');
   const searchBar = document.getElementById('searchBar');
   // Show welcome if no query or query too short (and not a number)
   const tooShort = query && query.length < 3 && !/^\d+/.test(query);
-  if (!query || tooShort) {
+  if (!searchStarted && (!query || tooShort)) {
     welcomeSection.style.display = 'block';
     searchBar.classList.remove('visible');
     list.innerHTML = '';
     return;
   }
+  searchStarted = true;
   welcomeSection.style.display = 'none';
   searchBar.classList.add('visible');
+  if (!query || tooShort) {
+    list.innerHTML = '<div class="empty"><p>Type at least three letters of a dog’s name, or enter a dog number.</p></div>';
+    return;
+  }
   if (!dogs.length) {
     list.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><h3>No results for &ldquo;${query}&rdquo;</h3><p>Check the spelling or try the dog's ID number.</p></div>`;
     return;
@@ -797,10 +803,19 @@ function filterDogs() {
   renderDogList(matches, q);
 }
 function filterFromWelcome(val) {
+  const welcomeInput = document.getElementById('welcomeInput');
+  const wasFocused = document.activeElement === welcomeInput;
+  const start = welcomeInput.selectionStart;
+  const end = welcomeInput.selectionEnd;
   const q = val.toLowerCase().trim();
   document.getElementById('searchInput').value = val;
   const matches = q ? allDogs.filter(d => matchesDog(d, q)) : [];
   renderDogList(matches, q);
+  if (wasFocused && searchStarted) {
+    const input = document.getElementById('searchInput');
+    input.focus({preventScroll:true});
+    input.setSelectionRange(start ?? val.length, end ?? val.length);
+  }
 }
 
 // ── STATUS ────────────────────────────────────────────────────────────────────
@@ -1100,6 +1115,43 @@ function getDogClassForYear(dog, year) {
 
 // Display ordering only: annual totals and scoring formulas remain unchanged.
 let currentAnnualSort = 'points';
+let annualClassFilter = '';
+let annualBreedFilter = '';
+let annualFilterPanel = '';
+function escapeRankOption(value) {
+  return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function toggleAnnualFilter(panel) {
+  annualFilterPanel = annualFilterPanel === panel ? '' : panel;
+  renderAnnualRankings();
+}
+function setAnnualFilter(kind, value) {
+  if (kind === 'class') annualClassFilter = value;
+  if (kind === 'breed') annualBreedFilter = value;
+  renderAnnualRankings();
+}
+function resetAnnualFilters() {
+  annualClassFilter = ''; annualBreedFilter = ''; renderAnnualRankings();
+}
+function annualFilterMatches(entry, year) {
+  const cls = getDogClassForYear(entry.dog, year) || '__unknown__';
+  const breed = entry.dog.breed || '__unknown__';
+  return (!annualClassFilter || cls === annualClassFilter) && (!annualBreedFilter || breed === annualBreedFilter);
+}
+function annualFilterControls() {
+  const breeds = [...new Set(allDogs.map(d=>d.breed).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const classes = [...new Set(allDogs.flatMap(d=>[d.class,...Object.values(d.classHistory||{})]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const select = (kind, values, selected) => `<label>${kind === 'class' ? 'Class' : 'Breed'} <select aria-label="Filter annual rankings by ${kind}" onchange="setAnnualFilter('${kind}',this.value)" style="max-width:100%;padding:8px">
+    <option value="">All ${kind === 'class' ? 'classes' : 'breeds'}</option>
+    ${values.map(v=>`<option value="${escapeRankOption(v)}" ${v===selected?'selected':''}>${escapeRankOption(v)}</option>`).join('')}
+    <option value="__unknown__" ${selected==='__unknown__'?'selected':''}>Not recorded</option>
+  </select></label>`;
+  return `<button type="button" class="year-btn ${annualClassFilter?'active':''}" aria-expanded="${annualFilterPanel==='class'}" onclick="toggleAnnualFilter('class')">Class ▾</button>
+    <button type="button" class="year-btn ${annualBreedFilter?'active':''}" aria-expanded="${annualFilterPanel==='breed'}" onclick="toggleAnnualFilter('breed')">Breed ▾</button>
+    ${annualFilterPanel==='class' ? select('class',classes,annualClassFilter) : ''}
+    ${annualFilterPanel==='breed' ? select('breed',breeds,annualBreedFilter) : ''}
+    ${annualClassFilter||annualBreedFilter ? `<span>Filters: ${escapeRankOption(annualClassFilter==='__unknown__'?'Class not recorded':annualClassFilter)} ${escapeRankOption(annualBreedFilter==='__unknown__'?'Breed not recorded':annualBreedFilter)}</span><button type="button" class="year-btn" onclick="resetAnnualFilters()">Clear filters</button>` : ''}`;
+}
 function selectAnnualSort(sort) {
   currentAnnualSort = sort;
   renderAnnualRankings();
@@ -1140,7 +1192,7 @@ function renderAnnualRankings() {
     let ljPts=0, ssPts=0, gjPts=0, ffPts=0;
 
     runs.forEach(r => {
-      const p = (r.pts||0) + (r.win||0);
+      const p = sport === 'shed' ? (r.winPts||0) : (r.pts||0) + (r.win||0);
       totalPts += p;
       if (r._sub==='lj'||sport==='lj') { ljPts += p; const d=(r.bestFeet||0)*12+(r.bestInches||0); if(d>bestDist) bestDist=d; }
       if (r._sub==='ss'||sport==='ss') { ssPts += p; if(r.time && r.time < bestTime) bestTime=r.time; }
@@ -1169,10 +1221,11 @@ function renderAnnualRankings() {
   // Sort by total pts
   dogTotals.sort((a,b) => b.totalPts - a.totalPts);
 
-  const metricLabel = sport === 'tr' ? 'Speed' : sport === 'shed' ? '' : 'Best performance';
+  const metricLabel = sport === 'tr' ? 'Speed' : sport === 'shed' ? '' : sport === 'ss' ? 'Swim time' : sport === 'lj' || sport === 'gj' ? 'Distance' : sport === 'ff' ? 'Score' : 'Best performance';
   let html = `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0" role="group" aria-label="Annual ranking order">
+    ${annualFilterControls()}
     <span>Sort by:</span>
-    <button type="button" class="year-btn ${currentAnnualSort==='points'?'active':''}" aria-pressed="${currentAnnualSort==='points'}" onclick="selectAnnualSort('points')">Points</button>
+    <button type="button" class="year-btn ${currentAnnualSort==='points'?'active':''}" aria-pressed="${currentAnnualSort==='points'}" onclick="selectAnnualSort('points')">${sport === 'shed' ? 'Win Points' : 'Points'}</button>
     ${metricLabel ? `<button type="button" class="year-btn ${currentAnnualSort==='performance'?'active':''}" aria-pressed="${currentAnnualSort==='performance'}" onclick="selectAnnualSort('performance')">${metricLabel}</button>` : ''}
     <span style="color:var(--muted);font-size:12px">Highest first; swim times fastest first. Ties retain their existing order.</span>
   </div>`;
@@ -1202,7 +1255,8 @@ function renderAnnualRankings() {
 
 function renderAnnualTable(title, entries, sport, year) {
   if (!entries.length) return '';
-  entries = orderAnnualEntries(entries, sport);
+  entries = orderAnnualEntries(entries.filter(e=>annualFilterMatches(e,year)), sport);
+  if (!entries.length) return `<div class="no-data">${escapeRankOption(title)}: no results match the selected filters.</div>`;
   let html = '';
 
   // ── Overall ──
@@ -1232,11 +1286,12 @@ function renderAnnualTable(title, entries, sport, year) {
 
 function buildRankTableInner(title, entries, sport, showClass, year) {
   if (!entries.length) return '';
+  const showMetric = ['tr','tr_speed','ss','lj','gj','ff'].includes(sport);
   const metricHeader = sport==='tr_speed' ? 'Top Speed' : sport==='ss' ? 'Best Time' : sport==='lj'||sport==='gj' ? 'Best Distance' : sport==='ff' ? 'Best Score' : 'Total Pts';
   let html = `<div class="rank-table-wrap">
     <div class="rank-table-title">${title}</div>
     <table class="rank-table">
-      <thead><tr><th>#</th><th>Dog</th><th style="text-align:right">Pts</th><th style="text-align:right">${metricHeader}</th></tr></thead><tbody>`;
+      <thead><tr><th>#</th><th>Dog</th><th style="text-align:right">${sport === 'shed' ? 'Win Pts' : 'Pts'}</th>${showMetric ? `<th style="text-align:right">${metricHeader}</th>` : ''}</tr></thead><tbody>`;
   entries.slice(0, 15).forEach((e, i) => {
     const rank = i + 1;
     const cls = rank <= 3 ? 'rank-' + rank : '';
@@ -1248,7 +1303,7 @@ function buildRankTableInner(title, entries, sport, showClass, year) {
       <td class="rank-num">${ordinal(rank)}</td>
       <td><span class="rank-dog-name">${e.dog.name}</span>${classBadge}${breedSub}</td>
       <td class="rank-pts">${Number(e.totalPts ?? 0).toFixed(2)}</td>
-      <td class="rank-pts" style="color:var(--muted)">${metric}</td>
+      ${showMetric ? `<td class="rank-pts" style="color:var(--muted)">${metric}</td>` : ''}
     </tr>`;
   });
   html += '</tbody></table></div>';

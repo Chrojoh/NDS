@@ -1133,13 +1133,34 @@ function setAnnualFilter(kind, value) {
 function resetAnnualFilters() {
   annualClassFilter = ''; annualBreedFilter = ''; renderAnnualRankings();
 }
+// Normalize display/filter labels only; source breed values remain untouched.
+function rankingBreed(value) {
+  const raw = String(value || '').trim().replace(/\s+/g,' ');
+  const aliases = {
+    'labrador retriever':'Labrador Retriever', 'mix':'Mix',
+    'flat-coatedretriever':'Flat-Coated Retriever', 'flat-coated retriever':'Flat-Coated Retriever',
+    'american pitbull terrier':'American Pit Bull Terrier', 'american pit bull terrier':'American Pit Bull Terrier',
+    'minature australian shepherd':'Miniature Australian Shepherd', 'mini australian shepherd':'Miniature Australian Shepherd',
+    'miniature australian shepherd':'Miniature Australian Shepherd',
+    'minature american shepherd':'Miniature American Shepherd', 'mini american shepherd':'Miniature American Shepherd',
+    'miniature american shepherd':'Miniature American Shepherd',
+    'iclandic sheepdog':'Icelandic Sheepdog', 'icelandic sheepdog':'Icelandic Sheepdog',
+    'miniature dachsund':'Miniature Dachshund'
+  };
+  return aliases[raw.toLowerCase()] || raw;
+}
 function annualFilterMatches(entry, year) {
   const cls = getDogClassForYear(entry.dog, year) || '__unknown__';
-  const breed = entry.dog.breed || '__unknown__';
+  const breed = rankingBreed(entry.dog.breed) || '__unknown__';
   return (!annualClassFilter || cls === annualClassFilter) && (!annualBreedFilter || breed === annualBreedFilter);
 }
 function annualFilterControls() {
-  const breeds = [...new Set(allDogs.map(d=>d.breed).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const breedCounts = new Map();
+  allDogs.forEach(d => {
+    const breed = rankingBreed(d.breed);
+    if (breed) breedCounts.set(breed, (breedCounts.get(breed) || 0) + 1);
+  });
+  const breeds = [...breedCounts.keys()].sort((a,b) => breedCounts.get(b)-breedCounts.get(a) || a.localeCompare(b));
   const classes = [...new Set(allDogs.flatMap(d=>[d.class,...Object.values(d.classHistory||{})]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
   const select = (kind, values, selected) => `<label>${kind === 'class' ? 'Class' : 'Breed'} <select aria-label="Filter annual rankings by ${kind}" onchange="setAnnualFilter('${kind}',this.value)" style="max-width:100%;padding:8px">
     <option value="">All ${kind === 'class' ? 'classes' : 'breeds'}</option>
@@ -1274,9 +1295,9 @@ function renderAnnualTable(title, entries, sport, year) {
   });
 
   // ── By Breed ──
-  const breeds = [...new Set(entries.map(e => e.dog.breed).filter(Boolean))].sort();
+  const breeds = [...new Set(entries.map(e => rankingBreed(e.dog.breed)).filter(Boolean))].sort();
   breeds.forEach(breed => {
-    const inBreed = entries.filter(e => e.dog.breed === breed);
+    const inBreed = entries.filter(e => rankingBreed(e.dog.breed) === breed);
     if (inBreed.length > 1)
       html += buildRankTableInner(title + ' — ' + breed, inBreed, sport, true, year);
   });
@@ -1292,7 +1313,7 @@ function buildRankTableInner(title, entries, sport, showClass, year) {
     <div class="rank-table-title">${title}</div>
     <table class="rank-table">
       <thead><tr><th>#</th><th>Dog</th><th style="text-align:right">${sport === 'shed' ? 'Win Pts' : 'Pts'}</th>${showMetric ? `<th style="text-align:right">${metricHeader}</th>` : ''}</tr></thead><tbody>`;
-  entries.slice(0, 15).forEach((e, i) => {
+  entries.slice(0, 25).forEach((e, i) => {
     const rank = i + 1;
     const cls = rank <= 3 ? 'rank-' + rank : '';
     const metric = formatAnnualMetric(e, sport);

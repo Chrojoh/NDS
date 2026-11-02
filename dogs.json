@@ -37995,7 +37995,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "labrador Retriever",
+    "breed": "Labrador Retriever",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1tMwkN89OL0yuaraXXz4TfRZ6DgeeRRRv2A5dqomqqGo/edit?usp=sharing",
       "workbookId": "1tMwkN89OL0yuaraXXz4TfRZ6DgeeRRRv2A5dqomqqGo",
@@ -38039,7 +38039,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "labrador Retriever",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0024",
@@ -52958,7 +52960,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Golden Retriever",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1XapP3TtsD6I5k7QSf2a69FhEGUOMGnMw63m8Tvla2II/edit?usp=sharing",
       "workbookId": "1XapP3TtsD6I5k7QSf2a69FhEGUOMGnMw63m8Tvla2II",
@@ -53048,7 +53050,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Golden Retriever",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0032",
@@ -66557,7 +66561,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix  - Chesapeake Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1ENU_MbRrUgP2EzHDG2BYlEIZ53NfCmKh7TjLf-3PTeU/edit?usp=sharing",
       "workbookId": "1ENU_MbRrUgP2EzHDG2BYlEIZ53NfCmKh7TjLf-3PTeU",
@@ -66576,7 +66580,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix  - Chesapeake Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0041",
@@ -69842,7 +69848,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Flat-CoatedRetriever",
+    "breed": "Flat-Coated Retriever",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1L1Sh6cn6d_h0ZmpKkMcpErzzKxQ6b3JVveUEg4Eu_b0/edit?usp=sharing",
       "workbookId": "1L1Sh6cn6d_h0ZmpKkMcpErzzKxQ6b3JVveUEg4Eu_b0",
@@ -69861,7 +69867,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Flat-CoatedRetriever",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0045",
@@ -72179,7 +72187,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix -GSD Mix",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -72195,7 +72203,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix -GSD Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0051",
@@ -76552,7 +76562,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "LAbrador Retriever",
+    "breed": "Labrador Retriever",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1EOCRUQ1N7F7rwH0jcgHVu9avecjt6y3ElFki8tG5Qko/edit?usp=sharing",
       "workbookId": "1EOCRUQ1N7F7rwH0jcgHVu9avecjt6y3ElFki8tG5Qko",
@@ -76571,7 +76581,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "LAbrador Retriever",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0055",
@@ -88277,7 +88289,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix GSD x Malinois",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -88293,7 +88305,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix GSD x Malinois",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0062",
@@ -88473,7 +88487,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1ZHqm939rmdXBGAh4ek9-qxoDv2_g0BZd9vfiysawNZs/edit?usp=sharing",
       "workbookId": "1ZHqm939rmdXBGAh4ek9-qxoDv2_g0BZd9vfiysawNZs",
@@ -88492,7 +88506,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0063",
@@ -96783,7 +96799,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix Bully",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -96799,7 +96815,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix Bully",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0075",
@@ -103955,7 +103973,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "American Pitbull Terrier",
+    "breed": "American Pit Bull Terrier",
     "recordStatus": "awaiting_link",
     "dataStatus": "Awaiting correct workbook link - requested by project owner",
     "source": {
@@ -103971,7 +103989,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "American Pitbull Terrier",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0079",
@@ -104413,7 +104433,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Border Collie x Kelpie",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1vf2SaXgu-4SM-Cr5bawnYaz0Xo_aVENRmZv-L1QzPBc/edit?usp=sharing",
       "workbookId": "1vf2SaXgu-4SM-Cr5bawnYaz0Xo_aVENRmZv-L1QzPBc",
@@ -104432,7 +104452,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Border Collie x Kelpie",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0081",
@@ -107786,7 +107808,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: All Canadian",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1pU-TfRM9xQlQ2XS0bTAXR1hsujIg52r1aUoU85OmTjE/edit?usp=sharing",
       "workbookId": "1pU-TfRM9xQlQ2XS0bTAXR1hsujIg52r1aUoU85OmTjE",
@@ -107805,7 +107827,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: All Canadian",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0083",
@@ -114011,7 +114035,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -114021,7 +114045,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0090",
@@ -132671,7 +132697,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix Cirneco Dell'Etna x Whippet",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -132687,7 +132713,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix Cirneco Dell'Etna x Whippet",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0110",
@@ -134903,7 +134931,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1Qq0zFOHmY5GrpUbEDXVZWXRu-n2cKMht0ICius3zcZI/edit?usp=sharing",
       "workbookId": "1Qq0zFOHmY5GrpUbEDXVZWXRu-n2cKMht0ICius3zcZI",
@@ -134941,7 +134969,9 @@
       }
     ],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0112",
@@ -135453,7 +135483,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Lab x Collie",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1t5GT9Na2dwgc8Jacgx5ILhQlzULQa-UK2r1LIH9XcYo/edit?usp=sharing",
       "workbookId": "1t5GT9Na2dwgc8Jacgx5ILhQlzULQa-UK2r1LIH9XcYo",
@@ -135472,7 +135502,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Lab x Collie",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0114",
@@ -135915,7 +135947,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "American Pitbull Terrier",
+    "breed": "American Pit Bull Terrier",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -135931,7 +135963,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "American Pitbull Terrier",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0116",
@@ -136610,7 +136644,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Lab x Toller",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1a0Sq_K1funicOGocKLw_xTGAW3xPh2MTKz8ani1tFr4/edit?usp=sharing",
       "workbookId": "1a0Sq_K1funicOGocKLw_xTGAW3xPh2MTKz8ani1tFr4",
@@ -136629,7 +136663,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Lab x Toller",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0117",
@@ -137695,7 +137731,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1h43w44ePrfGZN1amV8sglSPoRaOPdArOXuS1sfgmze8/edit?usp=sharing",
       "workbookId": "1h43w44ePrfGZN1amV8sglSPoRaOPdArOXuS1sfgmze8",
@@ -137708,7 +137744,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0120",
@@ -140577,7 +140615,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Australian Cattle Dog",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1EmSJp4UCzK-QDRmYVVz205l0P4nL_YLVktBnkzY8lH8/edit?usp=sharing",
       "workbookId": "1EmSJp4UCzK-QDRmYVVz205l0P4nL_YLVktBnkzY8lH8",
@@ -140641,7 +140679,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "Mix: Australian Cattle Dog",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0124",
@@ -141578,7 +141618,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1aMs62dqZP8SiPA40nBys8_5IJbEvw30_OtOHO88-dIY/edit?usp=sharing",
       "workbookId": "1aMs62dqZP8SiPA40nBys8_5IJbEvw30_OtOHO88-dIY",
@@ -141591,7 +141631,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0127",
@@ -142499,7 +142541,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1JuJCZGVMv4vv44_naLzatQ-Aj356teD_mN4W5ycc_Dg/edit?usp=sharing",
       "workbookId": "1JuJCZGVMv4vv44_naLzatQ-Aj356teD_mN4W5ycc_Dg",
@@ -142512,7 +142554,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 2
+    "conversionReviewCount": 2,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0128",
@@ -142665,7 +142709,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/11ZtHlqUdHF8DrlODZUzv6jDE9-4CxMXunHNcdX_vN2w/edit?usp=sharing",
       "workbookId": "11ZtHlqUdHF8DrlODZUzv6jDE9-4CxMXunHNcdX_vN2w",
@@ -142684,7 +142728,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0130",
@@ -142726,7 +142772,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/18sw4AX-O4j9VMZxvXEQhqEgK1W7OVHxsBrR3cWZYpLs/edit?usp=sharing",
       "workbookId": "18sw4AX-O4j9VMZxvXEQhqEgK1W7OVHxsBrR3cWZYpLs",
@@ -142745,7 +142791,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0131",
@@ -142786,7 +142834,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1lXodDbqebyvtzqQMeFSObmZ8Txr4pu66kNoWhaopCFs/edit?usp=sharing",
       "workbookId": "1lXodDbqebyvtzqQMeFSObmZ8Txr4pu66kNoWhaopCFs",
@@ -142805,7 +142853,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0132",
@@ -145006,7 +145056,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1iP5gvxDVNHsK0bPm3FD5Y0YEiU2v2XmalpUsI3JVLVc/edit?usp=sharing",
       "workbookId": "1iP5gvxDVNHsK0bPm3FD5Y0YEiU2v2XmalpUsI3JVLVc",
@@ -145039,7 +145089,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0136",
@@ -146055,7 +146107,7 @@
     "classHistory": {},
     "class": "",
     "height": "S-verified",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1LaSeE3xfnXB13gNlzCabhtVICbmYnNm-Pzor0uBhIJM/edit?usp=sharing",
       "workbookId": "1LaSeE3xfnXB13gNlzCabhtVICbmYnNm-Pzor0uBhIJM",
@@ -146088,7 +146140,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0137",
@@ -148079,7 +148133,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/19BglNj3ky4jsIFnR2nBpsD6EEvV1rncu94xFR4R_fAk/edit?usp=sharing",
       "workbookId": "19BglNj3ky4jsIFnR2nBpsD6EEvV1rncu94xFR4R_fAk",
@@ -148092,7 +148146,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0140",
@@ -149467,7 +149523,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -149483,7 +149539,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0145",
@@ -152110,7 +152168,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1bOzY0ghaD8JqPYxUb4h5ABkSd6HS0MbdM4tCzgldP8s/edit?usp=sharing",
       "workbookId": "1bOzY0ghaD8JqPYxUb4h5ABkSd6HS0MbdM4tCzgldP8s",
@@ -152129,7 +152187,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0148",
@@ -162889,7 +162949,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/13lhHaEcss_WgvUVyl4Zvt-K9BGNH_ZCL3JmckfMI5K0/edit?usp=sharing",
       "workbookId": "13lhHaEcss_WgvUVyl4Zvt-K9BGNH_ZCL3JmckfMI5K0",
@@ -162979,7 +163039,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0159",
@@ -163911,7 +163973,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix:Malinois x Dutch Shepherd",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1HajSDHEyj_wd80Zf2F1hyxnv-prpKc6I6GlC7pdlGpE/edit?usp=sharing",
       "workbookId": "1HajSDHEyj_wd80Zf2F1hyxnv-prpKc6I6GlC7pdlGpE",
@@ -163930,7 +163992,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix:Malinois x Dutch Shepherd",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0160",
@@ -163970,7 +164034,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Lab x Rottie",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -163986,7 +164050,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Lab x Rottie",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0162",
@@ -166367,7 +166433,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1EpN-7l0uQlIJcYeUU1A0WiXC-MMfNvc6f2rvyPfBEYE/edit?usp=sharing",
       "workbookId": "1EpN-7l0uQlIJcYeUU1A0WiXC-MMfNvc6f2rvyPfBEYE",
@@ -166411,7 +166477,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0164",
@@ -172129,7 +172197,7 @@
     "classHistory": {},
     "class": "",
     "height": "S-verified",
-    "breed": "Mix: Cavapoo",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/182g_Xebd7NQmv3RqEr9LG_CnYMWAiB6rlNJAWH2jgPo/edit?usp=sharing",
       "workbookId": "182g_Xebd7NQmv3RqEr9LG_CnYMWAiB6rlNJAWH2jgPo",
@@ -172148,7 +172216,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "Mix: Cavapoo",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0171",
@@ -173626,7 +173696,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Aussie x Border Collie",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1fPfffx49ZxZrUN53T-LMr2mHfkepQMB6qOESGbNq_HU/edit?usp=sharing",
       "workbookId": "1fPfffx49ZxZrUN53T-LMr2mHfkepQMB6qOESGbNq_HU",
@@ -173645,7 +173715,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Aussie x Border Collie",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0174",
@@ -176742,7 +176814,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: All Canadian",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1xLcZFdx8znowCzogYG9Ltea0qeD0l3DLzHBBQN69jGs/edit?usp=sharing",
       "workbookId": "1xLcZFdx8znowCzogYG9Ltea0qeD0l3DLzHBBQN69jGs",
@@ -176761,7 +176833,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: All Canadian",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0182",
@@ -178219,7 +178293,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Aussie x Dalmation",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1EIdeRtR-s338kIp1u_XtCkNtFX2CM5nt09JW1rDpmjA/edit?usp=sharing",
       "workbookId": "1EIdeRtR-s338kIp1u_XtCkNtFX2CM5nt09JW1rDpmjA",
@@ -178238,7 +178312,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Aussie x Dalmation",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0185",
@@ -178404,7 +178480,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1uTZ3_WROSYyrk2qgFiZegyiMbmDgCDkWro9RZWGFX44/edit?usp=sharing",
       "workbookId": "1uTZ3_WROSYyrk2qgFiZegyiMbmDgCDkWro9RZWGFX44",
@@ -178423,7 +178499,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0186",
@@ -178588,7 +178666,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/11kyU88uuDng4gQQgM4qziLznPnjXu6oQOKLmIB6UScw/edit?usp=sharing",
       "workbookId": "11kyU88uuDng4gQQgM4qziLznPnjXu6oQOKLmIB6UScw",
@@ -178607,7 +178685,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0187",
@@ -180880,7 +180960,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "American Pitbull Terrier",
+    "breed": "American Pit Bull Terrier",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -180896,7 +180976,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "American Pitbull Terrier",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0190",
@@ -182718,7 +182800,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1uyO2rKFblC-hPhGqgDZbIHCCm7rip5YllpMuCF_0uE0/edit?usp=sharing",
       "workbookId": "1uyO2rKFblC-hPhGqgDZbIHCCm7rip5YllpMuCF_0uE0",
@@ -182731,7 +182813,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0193",
@@ -184061,7 +184145,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Border Collie x Whippet",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1fMA-9fYN52MnK_pQ05MS4RZsWwQxxkTHe5mWu4YgDww/edit?usp=sharing",
       "workbookId": "1fMA-9fYN52MnK_pQ05MS4RZsWwQxxkTHe5mWu4YgDww",
@@ -184126,7 +184210,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 2
+    "conversionReviewCount": 2,
+    "breedOriginal": "Mix: Border Collie x Whippet",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0194",
@@ -185374,7 +185460,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Border Collie x Whippet",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/116NS-RfCLZdU5oIY-PRJqsCqkRVoDxbttDOIWhDO9FY/edit?usp=sharing",
       "workbookId": "116NS-RfCLZdU5oIY-PRJqsCqkRVoDxbttDOIWhDO9FY",
@@ -185393,7 +185479,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "Mix: Border Collie x Whippet",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0195",
@@ -187019,7 +187107,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Golden Mountain Dog",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1y8UjitzACj4A1au7Gv9pQOLfZROuaBW1ElPlZeDkF5c/edit?usp=sharing",
       "workbookId": "1y8UjitzACj4A1au7Gv9pQOLfZROuaBW1ElPlZeDkF5c",
@@ -187038,7 +187126,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Golden Mountain Dog",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0198",
@@ -187232,7 +187322,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Minature American Shepherd",
+    "breed": "Miniature American Shepherd",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1zIynmjsHKJ1s1VTyzgLUzigeCktqmnR-BhKFE__5lso/edit?usp=sharing",
       "workbookId": "1zIynmjsHKJ1s1VTyzgLUzigeCktqmnR-BhKFE__5lso",
@@ -187251,7 +187341,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Minature American Shepherd",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0200",
@@ -187425,7 +187517,7 @@
     "classHistory": {},
     "class": "",
     "height": "S",
-    "breed": "Minature Australian Shepherd",
+    "breed": "Miniature Australian Shepherd",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/12DMH5IBwaYDjMf5nJtk8OQgPnAxLWRc5O-8i-H59jV8/edit?usp=sharing",
       "workbookId": "12DMH5IBwaYDjMf5nJtk8OQgPnAxLWRc5O-8i-H59jV8",
@@ -187444,7 +187536,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Minature Australian Shepherd",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0201",
@@ -188624,7 +188718,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1z7aiNDNOT6rEfS4tWqEB0grEzThf2s71v6ZrUQZ8CuM/edit?usp=sharing",
       "workbookId": "1z7aiNDNOT6rEfS4tWqEB0grEzThf2s71v6ZrUQZ8CuM",
@@ -188643,7 +188737,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0208",
@@ -189334,7 +189430,7 @@
     "classHistory": {},
     "class": "",
     "height": "S-verified",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1fUZwLJwDmSSPUgwAGXVf8Ja9nrhWRETWGkgTxr797_Q/edit?usp=sharing",
       "workbookId": "1fUZwLJwDmSSPUgwAGXVf8Ja9nrhWRETWGkgTxr797_Q",
@@ -189353,7 +189449,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0210",
@@ -197630,7 +197728,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "American Pitbull Terrier",
+    "breed": "American Pit Bull Terrier",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1710z5kLIc5Dz_4vxYL_bq_KqfYiqDfW8jqwHJV9e9Cw/edit?usp=sharing",
       "workbookId": "1710z5kLIc5Dz_4vxYL_bq_KqfYiqDfW8jqwHJV9e9Cw",
@@ -197649,7 +197747,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "American Pitbull Terrier",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0220",
@@ -198847,7 +198947,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1jbvJZkv89KZL56pXbyPPq8YI1BM9DcNYCzHi8_YKDoI/edit?usp=sharing",
       "workbookId": "1jbvJZkv89KZL56pXbyPPq8YI1BM9DcNYCzHi8_YKDoI",
@@ -198866,7 +198966,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0224",
@@ -206816,7 +206918,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1Ymh-BX-dPgbeBUkid1fW4SAYKSW-sKmKbMU_e1eZL7E/edit?usp=sharing",
       "workbookId": "1Ymh-BX-dPgbeBUkid1fW4SAYKSW-sKmKbMU_e1eZL7E",
@@ -206829,7 +206931,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0236",
@@ -208571,7 +208675,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: German Shepherd/Malinois",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1gBHoUGJuRRn_1-vPbNzWAFsOc646D9yZFg3tdlBc0Dk/edit?usp=sharing",
       "workbookId": "1gBHoUGJuRRn_1-vPbNzWAFsOc646D9yZFg3tdlBc0Dk",
@@ -208590,7 +208694,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: German Shepherd/Malinois",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0239",
@@ -209257,7 +209363,7 @@
     "classHistory": {},
     "class": "",
     "height": "S",
-    "breed": "Iclandic Sheepdog",
+    "breed": "Icelandic Sheepdog",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -209273,7 +209379,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Iclandic Sheepdog",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0241",
@@ -209519,7 +209627,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Australian Shepherd/Border Collie",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1ISXzySNOpjbD_UfvLOLdfEWo4XWov6kg49hZY3pJu0o/edit?usp=sharing",
       "workbookId": "1ISXzySNOpjbD_UfvLOLdfEWo4XWov6kg49hZY3pJu0o",
@@ -209538,7 +209646,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Australian Shepherd/Border Collie",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0243",
@@ -209781,7 +209891,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: German Shepherd/Malinois",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1JSO2JSyx6XauhqtYyf6SXH1yNzdxUkMNhguLcsQp-O8/edit?usp=sharing",
       "workbookId": "1JSO2JSyx6XauhqtYyf6SXH1yNzdxUkMNhguLcsQp-O8",
@@ -209800,7 +209910,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: German Shepherd/Malinois",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0244",
@@ -211919,7 +212031,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1PTynb_hw45mADhX5XgAFsvWNexPy7p_3EurmdlUvP9s/edit?usp=sharing",
       "workbookId": "1PTynb_hw45mADhX5XgAFsvWNexPy7p_3EurmdlUvP9s",
@@ -211938,7 +212050,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0249",
@@ -215292,7 +215406,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Rottweiler x Labrador",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/11PidKzeNGNLlHlwoyCH9D8x4xmhMM7-ALI3yvPzSHhc/edit?usp=sharing",
       "workbookId": "11PidKzeNGNLlHlwoyCH9D8x4xmhMM7-ALI3yvPzSHhc",
@@ -215311,7 +215425,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Rottweiler x Labrador",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0252",
@@ -215731,7 +215847,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/11DbuLRIC4w89xkZ8YdrZfe1_Bfdj6qTmOKOadkdBbpo/edit?usp=sharing",
       "workbookId": "11DbuLRIC4w89xkZ8YdrZfe1_Bfdj6qTmOKOadkdBbpo",
@@ -215750,7 +215866,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0253",
@@ -216378,7 +216496,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -216388,7 +216506,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0257",
@@ -217953,7 +218073,7 @@
     "classHistory": {},
     "class": "",
     "height": "S",
-    "breed": "Mix",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -217969,7 +218089,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0266",
@@ -219994,7 +220116,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/16XzbvlWcyibckZBb2p_6NWRL-bfYeAerv0_qZffOJEY/edit?usp=sharing",
       "workbookId": "16XzbvlWcyibckZBb2p_6NWRL-bfYeAerv0_qZffOJEY",
@@ -220007,7 +220129,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 1
+    "conversionReviewCount": 1,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0269",
@@ -220117,7 +220241,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1orQroCIusfCcv_-5m43UXvPkoa1-oaa58h0sWyWXF7w/edit?usp=sharing",
       "workbookId": "1orQroCIusfCcv_-5m43UXvPkoa1-oaa58h0sWyWXF7w",
@@ -220136,7 +220260,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0270",
@@ -220176,7 +220302,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Golden Retriever/Irish Setter",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -220192,7 +220318,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Golden Retriever/Irish Setter",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0272",
@@ -221956,7 +222084,7 @@
     "classHistory": {},
     "class": "",
     "height": "S-Verified",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1nxyOz95GBdwSSkMBpsSAZkAV-ayOGodTIGCMeIpgZjo/edit?usp=sharing",
       "workbookId": "1nxyOz95GBdwSSkMBpsSAZkAV-ayOGodTIGCMeIpgZjo",
@@ -222020,7 +222148,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0278",
@@ -222549,7 +222679,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1HqM9JTblVunJokLpl611TRPh_tAo7qbUdqd7GoS2MnQ/edit?usp=sharing",
       "workbookId": "1HqM9JTblVunJokLpl611TRPh_tAo7qbUdqd7GoS2MnQ",
@@ -222568,7 +222698,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0280",
@@ -222580,7 +222712,7 @@
     "classHistory": {},
     "class": "",
     "height": "S",
-    "breed": "Miniature Dachsund",
+    "breed": "Miniature Dachshund",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -222596,7 +222728,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Miniature Dachsund",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0281",
@@ -222724,7 +222858,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mini American Shepherd",
+    "breed": "Miniature American Shepherd",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/12PZ994cHRJe0GfKB6kUdB-tVU7bmlXI9QF-wb0ivoN8/edit?usp=sharing",
       "workbookId": "12PZ994cHRJe0GfKB6kUdB-tVU7bmlXI9QF-wb0ivoN8",
@@ -222743,7 +222877,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 2
+    "conversionReviewCount": 2,
+    "breedOriginal": "Mini American Shepherd",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0283",
@@ -222852,7 +222988,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Shepherd Lab",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1iykEXdnEHLtR0XiFgYJB9K6k-3VNMjWphY9G60IbF_4/edit?usp=sharing",
       "workbookId": "1iykEXdnEHLtR0XiFgYJB9K6k-3VNMjWphY9G60IbF_4",
@@ -222871,7 +223007,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Shepherd Lab",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0284",
@@ -223508,7 +223646,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1URCR90C_4JY7oM6ZhJYo61moyEWT9W7d3PX9z77VH-Y/edit?usp=sharing",
       "workbookId": "1URCR90C_4JY7oM6ZhJYo61moyEWT9W7d3PX9z77VH-Y",
@@ -223527,7 +223665,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0287",
@@ -224436,7 +224576,7 @@
     "classHistory": {},
     "class": "",
     "height": "S",
-    "breed": "Mix: Corgi x",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1Oiav4lRUsem7HAHZbjXAj5ofjhSF29PXfr8_ROaxQIU/edit?usp=sharing",
       "workbookId": "1Oiav4lRUsem7HAHZbjXAj5ofjhSF29PXfr8_ROaxQIU",
@@ -224455,7 +224595,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Corgi x",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0295",
@@ -225640,7 +225782,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mix: Husky x",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -225656,7 +225798,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mix: Husky x",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0302",
@@ -227750,7 +227894,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Brittany Spaniel",
+    "breed": "Brittany",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -227766,7 +227910,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Brittany Spaniel",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0310",
@@ -228304,7 +228450,7 @@
     "classHistory": {},
     "class": "",
     "height": "L",
-    "breed": "Mini Australian Shepherd",
+    "breed": "Miniature Australian Shepherd",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -228320,7 +228466,9 @@
       "status": "earlier local registry snapshot; identity matched by ID and name"
     },
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "Mini Australian Shepherd",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0314",
@@ -228593,7 +228741,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/17LzWh5LIShUtoiaVZELU4_USueF6Oz4xQsyOk_0Ixew/edit?usp=sharing",
       "workbookId": "17LzWh5LIShUtoiaVZELU4_USueF6Oz4xQsyOk_0Ixew",
@@ -228606,7 +228754,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0316",
@@ -228816,7 +228966,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1byHr026G22DJMlsRRyxOJ6jdsdcLcbuvHZBrsc5aY9U/edit?usp=sharing",
       "workbookId": "1byHr026G22DJMlsRRyxOJ6jdsdcLcbuvHZBrsc5aY9U",
@@ -228829,7 +228979,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0317",
@@ -229345,7 +229497,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1WQaXtzv2qUfdpgBbf5ZiyBvJ2CgejfN4OMcd4E7Z31Q/edit?usp=sharing",
       "workbookId": "1WQaXtzv2qUfdpgBbf5ZiyBvJ2CgejfN4OMcd4E7Z31Q",
@@ -229358,7 +229510,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0318",
@@ -229370,7 +229524,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -229380,7 +229534,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0319",
@@ -229972,7 +230128,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1doFVO3gw-QW9Hcyw7LhwAnBurdPRW0cNyyU3X9ffM8o/edit?usp=sharing",
       "workbookId": "1doFVO3gw-QW9Hcyw7LhwAnBurdPRW0cNyyU3X9ffM8o",
@@ -229985,7 +230141,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0321",
@@ -229997,7 +230155,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -230007,7 +230165,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0322",
@@ -230019,7 +230179,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -230029,7 +230189,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0323",
@@ -230041,7 +230203,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -230051,7 +230213,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0324",
@@ -230063,7 +230227,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -230073,7 +230237,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0325",
@@ -230085,7 +230251,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -230095,7 +230261,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0326",
@@ -230578,7 +230746,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1IVv1x-HGekDoKesreCNH8QweH0FIR_IlwG8BEclb_bI/edit?usp=sharing",
       "workbookId": "1IVv1x-HGekDoKesreCNH8QweH0FIR_IlwG8BEclb_bI",
@@ -230591,7 +230759,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0327",
@@ -230603,7 +230773,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -230613,7 +230783,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0328",
@@ -230625,7 +230797,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -230635,7 +230807,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0329",
@@ -231114,7 +231288,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1RBuShhY1RKPzO-6f_476_ZJskCP3SfzkawCxmffkNqM/edit?usp=sharing",
       "workbookId": "1RBuShhY1RKPzO-6f_476_ZJskCP3SfzkawCxmffkNqM",
@@ -231127,7 +231301,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0330",
@@ -231687,7 +231863,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "source": {
       "url": "https://docs.google.com/spreadsheets/d/1AOgwALlNFsw2DOLjTTFlm6CX29QEuEvy7fO0CAoE7Fw/edit?usp=sharing",
       "workbookId": "1AOgwALlNFsw2DOLjTTFlm6CX29QEuEvy7fO0CAoE7Fw",
@@ -231700,7 +231876,9 @@
     "otherSports": {},
     "unparsedSourceRows": [],
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0331",
@@ -231712,7 +231890,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -231722,7 +231900,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0332",
@@ -231734,7 +231914,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -231744,7 +231924,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0333",
@@ -231756,7 +231938,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -231766,7 +231948,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0334",
@@ -231778,7 +231962,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -231788,7 +231972,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0335",
@@ -231800,7 +231986,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -231810,7 +231996,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0336",
@@ -231822,7 +232010,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -231832,7 +232020,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0337",
@@ -231844,7 +232034,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -231854,7 +232044,9 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   },
   {
     "id": "0338",
@@ -231866,7 +232058,7 @@
     "classHistory": {},
     "class": "",
     "height": null,
-    "breed": "",
+    "breed": "Mixed",
     "recordStatus": "registered_no_results",
     "dataStatus": "Registered - no competition records yet (project-owner interpretation)",
     "source": {
@@ -231876,6 +232068,8 @@
     },
     "statusBasis": "Project owner interpretation on November 1, 2026; no fabricated scores or titles",
     "metadataStatus": "Breed/height use a matching local registry snapshot where available. Current and historical class need verification.",
-    "conversionReviewCount": 0
+    "conversionReviewCount": 0,
+    "breedOriginal": "",
+    "breedNormalization": "Project owner requested spelling grouping and undeclared breeds as Mixed; original preserved in breedOriginal."
   }
 ]

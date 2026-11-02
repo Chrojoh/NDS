@@ -1118,6 +1118,9 @@ let currentAnnualSort = 'points';
 let annualClassFilter = '';
 let annualBreedFilter = '';
 let annualFilterPanel = '';
+let annualDivisionFilter = '';
+let annualLevelFilter = '';
+let annualCategoryFilter = 'regular';
 function escapeRankOption(value) {
   return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
@@ -1128,10 +1131,13 @@ function toggleAnnualFilter(panel) {
 function setAnnualFilter(kind, value) {
   if (kind === 'class') annualClassFilter = value;
   if (kind === 'breed') annualBreedFilter = value;
+  if (kind === 'division') annualDivisionFilter = value;
+  if (kind === 'level') annualLevelFilter = value;
+  if (kind === 'category') { annualCategoryFilter = value; annualDivisionFilter = ''; }
   renderAnnualRankings();
 }
 function resetAnnualFilters() {
-  annualClassFilter = ''; annualBreedFilter = ''; renderAnnualRankings();
+  annualClassFilter = ''; annualBreedFilter = ''; annualDivisionFilter = ''; annualLevelFilter = ''; annualCategoryFilter = 'regular'; renderAnnualRankings();
 }
 // Normalize display/filter labels only; source breed values remain untouched.
 function rankingBreed(value) {
@@ -1149,10 +1155,35 @@ function rankingBreed(value) {
   };
   return aliases[raw.toLowerCase()] || raw;
 }
+function annualClassForYear(dog, year) {
+  const cls = getDogClassForYear(dog,year);
+  if (isAnnualDockSport()) return cls === 'Toy' ? 'Small' : cls === 'Vet Toy' ? 'Vet Small' : cls;
+  return cls;
+}
 function annualFilterMatches(entry, year) {
-  const cls = getDogClassForYear(entry.dog, year) || '__unknown__';
+  const cls = annualClassForYear(entry.dog, year) || '__unknown__';
   const breed = rankingBreed(entry.dog.breed) || '__unknown__';
-  return (!annualClassFilter || cls === annualClassFilter) && (!annualBreedFilter || breed === annualBreedFilter);
+  return (currentAnnualSport === 'shed' || !annualClassFilter || cls === annualClassFilter) && (!annualBreedFilter || breed === annualBreedFilter);
+}
+function isAnnualDockSport() {
+  return ['dock','lj','ss','gj','ff'].includes(currentAnnualSport);
+}
+function getAnnualRuns(dog, sport) {
+  if (annualCategoryFilter !== 'ramp' || !['dock','lj','ss'].includes(currentAnnualSport)) return getRunsForSport(dog,sport);
+  if (sport === 'dock') return ['lj','ss'].flatMap(sub=>(dog.dock?.[sub]?.rampHistory||[]).map(r=>({...r,_sub:sub})));
+  return dog.dock?.[sport]?.rampHistory || [];
+}
+function rankingDivision(value) {
+  const match = String(value||'').trim().match(/^(?:(?:vet|veteran|small|large|open)\s+)*(novice|junior|senior|master|elite|premier)$/i);
+  return match ? match[1][0].toUpperCase()+match[1].slice(1).toLowerCase() : '';
+}
+function matchesAnnualRun(run) {
+  if (isAnnualDockSport() && annualDivisionFilter) {
+    const division = rankingDivision(run.division) || '__unknown__';
+    if (division !== annualDivisionFilter) return false;
+  }
+  if (currentAnnualSport === 'shed' && annualLevelFilter && String(run.level||'') !== annualLevelFilter) return false;
+  return true;
 }
 function annualFilterControls() {
   const breedCounts = new Map();
@@ -1161,18 +1192,30 @@ function annualFilterControls() {
     if (breed) breedCounts.set(breed, (breedCounts.get(breed) || 0) + 1);
   });
   const breeds = [...breedCounts.keys()].sort((a,b) => breedCounts.get(b)-breedCounts.get(a) || a.localeCompare(b));
-  const classes = [...new Set(allDogs.flatMap(d=>[d.class,...Object.values(d.classHistory||{})]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-  const select = (kind, values, selected) => `<label>${kind === 'class' ? 'Class' : 'Breed'} <select aria-label="Filter annual rankings by ${kind}" onchange="setAnnualFilter('${kind}',this.value)" style="max-width:100%;padding:8px">
-    <option value="">All ${kind === 'class' ? 'classes' : 'breeds'}</option>
+  const classes = currentAnnualSport === 'tr' ? ['Large','Small','Toy','Vet Large','Vet Small','Vet Toy'] : ['Large','Small','Vet Large','Vet Small'];
+  const annualRuns = allDogs.flatMap(d=>getAnnualRuns(d,currentAnnualSport)).filter(r=>getYear(r.date)===currentYear);
+  const divisions = [...new Set(annualRuns.map(r=>rankingDivision(r.division)).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const levels = [...new Set(annualRuns.map(r=>String(r.level||'')).filter(Boolean))].sort((a,b)=>Number(a)-Number(b));
+  const select = (kind, values, selected, unknown=true) => `<label>${kind[0].toUpperCase()+kind.slice(1)} <select aria-label="Filter annual rankings by ${kind}" onchange="setAnnualFilter('${kind}',this.value)" style="max-width:100%;padding:8px">
+    <option value="">All ${kind === 'class' ? 'classes' : kind === 'breed' ? 'breeds' : kind+'s'}</option>
     ${values.map(v=>`<option value="${escapeRankOption(v)}" ${v===selected?'selected':''}>${escapeRankOption(v)}</option>`).join('')}
-    <option value="__unknown__" ${selected==='__unknown__'?'selected':''}>Not recorded</option>
+    ${unknown ? `<option value="__unknown__" ${selected==='__unknown__'?'selected':''}>Not recorded</option>` : ''}
   </select></label>`;
-  return `<button type="button" class="year-btn ${annualClassFilter?'active':''}" aria-expanded="${annualFilterPanel==='class'}" onclick="toggleAnnualFilter('class')">Class ▾</button>
-    <button type="button" class="year-btn ${annualBreedFilter?'active':''}" aria-expanded="${annualFilterPanel==='breed'}" onclick="toggleAnnualFilter('breed')">Breed ▾</button>
-    ${annualFilterPanel==='class' ? select('class',classes,annualClassFilter) : ''}
-    ${annualFilterPanel==='breed' ? select('breed',breeds,annualBreedFilter) : ''}
-    ${annualClassFilter||annualBreedFilter ? `<span>Filters: ${escapeRankOption(annualClassFilter==='__unknown__'?'Class not recorded':annualClassFilter)} ${escapeRankOption(annualBreedFilter==='__unknown__'?'Breed not recorded':annualBreedFilter)}</span><button type="button" class="year-btn" onclick="resetAnnualFilters()">Clear filters</button>` : ''}`;
+  const active = [annualBreedFilter, currentAnnualSport!=='shed'&&annualClassFilter, isAnnualDockSport()&&annualDivisionFilter,currentAnnualSport==='shed'&&annualLevelFilter].filter(Boolean);
+  return `<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    ${currentAnnualSport !== 'shed' ? select('class',classes,annualClassFilter) : ''}
+    ${select('breed',breeds,annualBreedFilter)}
+    ${isAnnualDockSport() ? select('division',divisions,annualDivisionFilter) : ''}
+    ${currentAnnualSport === 'shed' ? select('level',levels,annualLevelFilter,false) : ''}
+    ${['dock','lj','ss'].includes(currentAnnualSport) ? `<label>Category <select aria-label="Filter annual rankings by category" onchange="setAnnualFilter('category',this.value)"><option value="regular" ${annualCategoryFilter==='regular'?'selected':''}>Regular</option><option value="ramp" ${annualCategoryFilter==='ramp'?'selected':''}>Ramp</option></select></label>` : ''}
+    <button type="button" class="year-btn" onclick="resetAnnualFilters()">Clear filters</button>
+    ${active.length ? `<span>Filters: ${active.map(v=>escapeRankOption(v==='__unknown__'?'Not recorded':v)).join(' · ')}</span>` : ''}
+    ${isAnnualDockSport()&&annualDivisionFilter ? `<span>Points from ${escapeRankOption(annualDivisionFilter==='__unknown__'?'unrecorded division':annualDivisionFilter)} runs only.</span>` : ''}
+    ${currentAnnualSport==='shed'&&annualLevelFilter ? `<span>Win points from Level ${escapeRankOption(annualLevelFilter)} runs only.</span>` : ''}
+    ${isAnnualDockSport()&&annualCategoryFilter==='ramp' ? '<span>Ramp results only.</span>' : ''}
+  </div>`;
 }
+
 function selectAnnualSort(sort) {
   currentAnnualSort = sort;
   renderAnnualRankings();
@@ -1193,7 +1236,7 @@ function renderAnnualRankings() {
   // Build year selector
   const years = new Set();
   allDogs.forEach(dog => {
-    getRunsForSport(dog, sport).forEach(r => { if (r.date) years.add(getYear(r.date)); });
+    getAnnualRuns(dog, sport).forEach(r => { if (r.date) years.add(getYear(r.date)); });
   });
   const sortedYears = [...years].filter(Boolean).sort().reverse();
   if (!currentYear || !sortedYears.includes(currentYear)) currentYear = sortedYears[0];
@@ -1206,7 +1249,7 @@ function renderAnnualRankings() {
 
   // Calculate annual totals per dog
   const dogTotals = allDogs.map(dog => {
-    const runs = getRunsForSport(dog, sport).filter(r => getYear(r.date) === currentYear);
+    const runs = getAnnualRuns(dog, sport).filter(r => getYear(r.date) === currentYear && matchesAnnualRun(r));
     if (!runs.length) return null;
 
     let totalPts = 0, topSpeed = 0, bestDist = 0, bestTime = Infinity, bestScore = 0;
@@ -1235,7 +1278,7 @@ function renderAnnualRankings() {
   }).filter(Boolean);
 
   if (!dogTotals.length) {
-    el.innerHTML = '<div class="no-data">No '+currentYear+' data found for this sport.</div>';
+    el.innerHTML = annualFilterControls() + '<div class="no-data">No '+currentYear+' results match these filters.</div>';
     return;
   }
 
@@ -1243,12 +1286,12 @@ function renderAnnualRankings() {
   dogTotals.sort((a,b) => b.totalPts - a.totalPts);
 
   const metricLabel = sport === 'tr' ? 'Speed' : sport === 'shed' ? '' : sport === 'ss' ? 'Swim time' : sport === 'lj' || sport === 'gj' ? 'Distance' : sport === 'ff' ? 'Score' : 'Best performance';
-  let html = `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0" role="group" aria-label="Annual ranking order">
-    ${annualFilterControls()}
+  let html = `${annualFilterControls()}
+  <div style="display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:12px 0;text-align:center" role="group" aria-label="Annual ranking order">
     <span>Sort by:</span>
     <button type="button" class="year-btn ${currentAnnualSort==='points'?'active':''}" aria-pressed="${currentAnnualSort==='points'}" onclick="selectAnnualSort('points')">${sport === 'shed' ? 'Win Points' : 'Points'}</button>
     ${metricLabel ? `<button type="button" class="year-btn ${currentAnnualSort==='performance'?'active':''}" aria-pressed="${currentAnnualSort==='performance'}" onclick="selectAnnualSort('performance')">${metricLabel}</button>` : ''}
-    <span style="color:var(--muted);font-size:12px">Highest first; swim times fastest first. Ties retain their existing order.</span>
+    <span style="flex-basis:100%;color:var(--muted);font-size:12px">Highest first; swim times fastest first. Ties retain their existing order.</span>
   </div>`;
 
   if (sport === 'dock') {
@@ -1257,7 +1300,7 @@ function renderAnnualRankings() {
     // Per event
     ['lj','ss','gj','ff'].forEach(sub => {
       const subTotals = allDogs.map(dog => {
-        const runs = (dog.dock?.[sub]?.history||[]).filter(r => getYear(r.date) === currentYear);
+        const runs = getAnnualRuns(dog,sub).filter(r => getYear(r.date) === currentYear && matchesAnnualRun(r));
         if (!runs.length) return null;
         const pts = runs.reduce((s,r) => s + (r.pts||0) + (r.win||0), 0);
         const bestDist = sub==='lj' ? Math.max(...runs.map(r=>(r.bestFeet||0)*12+(r.bestInches||0))) : (sub==='gj' ? Math.max(...runs.map(r=>r.best||0)) : 0);
@@ -1286,7 +1329,7 @@ function renderAnnualTable(title, entries, sport, year) {
   // ── By Class (using year-correct class) ──
   const classMap = {};
   entries.forEach(e => {
-    const c = year ? getDogClassForYear(e.dog, year) : (e.dog.class || '');
+    const c = year ? annualClassForYear(e.dog, year) : (e.dog.class || '');
     if (c) { if (!classMap[c]) classMap[c] = []; classMap[c].push(e); }
   });
   Object.keys(classMap).sort().forEach(cls => {
@@ -1317,7 +1360,7 @@ function buildRankTableInner(title, entries, sport, showClass, year) {
     const rank = i + 1;
     const cls = rank <= 3 ? 'rank-' + rank : '';
     const metric = formatAnnualMetric(e, sport);
-    const dogClass = year ? getDogClassForYear(e.dog, year) : (e.dog.class || '');
+    const dogClass = year ? annualClassForYear(e.dog, year) : (e.dog.class || '');
     const classBadge = showClass && dogClass ? `<span class="rank-class-badge">${dogClass}</span>` : '';
     const breedSub = e.dog.breed ? `<div class="rank-sub">${e.dog.breed}</div>` : '';
     html += `<tr class="${cls}">

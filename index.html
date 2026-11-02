@@ -432,7 +432,7 @@ function renderProgressBlock(pts, thresholds, eventLabel, rulesKey, detailId, hi
     progressSentence = `<span style="color:var(--accent);font-weight:500;">All titles earned!</span> ${pts} total points.`;
   } else {
     const ptsNeeded = next.pts - pts;
-    progressSentence = `<strong>${pts}</strong> of <strong>${next.pts}</strong> pts &nbsp;·&nbsp; <strong>${ptsNeeded} pts needed</strong> for <span class="next-title-name">${next.name}</span>`;
+    progressSentence = `<strong>${Number(pts).toFixed(2)}</strong> of <strong>${next.pts}</strong> pts &nbsp;·&nbsp; <strong>${ptsNeeded} pts needed</strong> for <span class="next-title-name">${next.name}</span>`;
     if (current) progressSentence += `<span style="color:var(--muted);font-size:12px;"> &nbsp;(currently: ${current.name})</span>`;
   }
 
@@ -529,7 +529,7 @@ function renderDockSection(dog) {
         <span class="sport-name">🏊 Dock Diving</span>
         <a class="sport-rules-link" href="${RULES_LINKS.dock}" target="_blank" rel="noopener">Official Rules</a>
       </div>
-      <span class="sport-pts">${totalPts} pts · ${totalWin} wins</span>
+      <span class="sport-pts">${Number(totalPts).toFixed(2)} pts · ${totalWin} wins</span>
     </div>
     <div class="stats-row">
       <div class="stat-box"><div class="stat-label">Best Jump</div><div class="stat-val">${d.lj.personalBest||'—'}</div></div>
@@ -614,7 +614,7 @@ function renderTimedRecall(dog) {
   if (!next) {
     progressSentence = `<span style="color:var(--accent);font-weight:500;">All titles earned!</span> ${tr.totalPts.toFixed(2)} total points.`;
   } else {
-    const needed = (next.pts - tr.totalPts).toFixed(1);
+    const needed = (next.pts - tr.totalPts).toFixed(2);
     progressSentence = `<strong>${tr.totalPts.toFixed(2)}</strong> of <strong>${next.pts}</strong> pts &nbsp;·&nbsp; <strong>${needed} pts needed</strong> for <span class="next-title-name">${next.name}</span>`;
     if (current) progressSentence += `<span style="color:var(--muted);font-size:12px;"> &nbsp;(currently: ${current.name})</span>`;
   }
@@ -666,7 +666,7 @@ function renderTabs(dog) {
   if (dog.dock) tabs.push({key:'dock', label:'🏊 Dock'});
   if (dog.shed) tabs.push({key:'shed', label:'🦌 Shed'});
   if (dog.timed_recall) tabs.push({key:'tr', label:'⚡ Recall'});
-  if (!tabs.length) return '<p style="padding:16px;color:var(--muted);font-size:13px;">No data recorded yet.</p>';
+  if (!tabs.length) return '<p style="padding:16px;color:var(--muted);font-size:13px;">' + ({registered_no_results:'Registered · no competition records yet',awaiting_link:'Awaiting the correct workbook link',access_required:'Records unavailable · workbook access required'}[dog.recordStatus] || 'No data recorded yet.') + '</p>';
 
   const active = activeTabs[dog.id] || tabs[0].key;
 
@@ -740,7 +740,7 @@ function renderDogCard(dog) {
     </div>
     <div class="dog-titles-preview">
       ${badges.map(b=>`<span class="title-badge ${b.cls}">${b.label}</span>`).join('')}
-      ${!badges.length?'<span style="font-size:12px;color:var(--muted);">No titles yet</span>':''}
+      ${!badges.length?'<span style="font-size:12px;color:var(--muted);">' + ({registered_no_results:'Registered · no competition records yet',awaiting_link:'Awaiting workbook link',access_required:'Workbook access required'}[dog.recordStatus] || 'No titles yet') + '</span>':''}
     </div>
     <div class="dog-detail ${isOpen?'open':''}" id="detail-${dog.id}">
       ${renderTabs(dog)}
@@ -764,7 +764,7 @@ function toggleDetails(id) {
 // ── RENDER LIST ───────────────────────────────────────────────────────────────
 function matchesDog(dog, q) {
   // ID match: any numeric input matches against the ID directly
-  if (/^\d+/.test(q)) return dog.id.startsWith(q.replace(/\D/g,''));
+  if (/^\d+/.test(q)) return dog.id.startsWith(q.replace(/\D/g,'')) || String(Number(dog.id)).startsWith(String(Number(q.replace(/\D/g,''))));
   // Name match: require at least 3 characters to avoid single-letter floods
   if (q.length < 3) return false;
   return dog.name.toLowerCase().includes(q);
@@ -960,7 +960,7 @@ function renderEventDetail(el, sport, eventKey) {
       if (eName !== weekendName) return;
 
       // Round name = full event string
-      const roundKey = r.event || weekendName;
+      const roundKey = (sport === 'dock' ? r._sub + '|' : '') + (r.event || weekendName);
       if (!rounds[roundKey]) rounds[roundKey] = [];
       rounds[roundKey].push({dog, run: r});
 
@@ -973,21 +973,23 @@ function renderEventDetail(el, sport, eventKey) {
   });
 
   // Sort weekend best
-  weekendBest.sort((a,b) => getRankValue(b.run, b.sport) - getRankValue(a.run, a.sport));
+  weekendBest.sort((a,b) => getRankValue(b.run, sport) - getRankValue(a.run, sport));
 
   let html = `<div class="event-detail-back" onclick="eventDetailState=null;renderRankings()">← Back to events</div>`;
   html += `<div style="font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:4px;">${weekendName}</div>`;
   html += `<div style="font-size:13px;color:var(--muted);margin-bottom:16px;">${yearMonth}</div>`;
 
   // Weekend best table
-  html += renderLeaderboard('Weekend Best — ' + sportLabel(sport), weekendBest, sport, true);
+  html += renderLeaderboard(sport === 'dock' ? 'Highest single-run title points — Dock Diving' : 'Weekend Best — ' + sportLabel(sport), weekendBest, sport, true);
 
   // Per-round tables
   const roundKeys = Object.keys(rounds).sort();
   if (roundKeys.length > 1) {
     roundKeys.forEach(rk => {
-      const entries = rounds[rk].sort((a,b) => getRankValue(b.run, sport) - getRankValue(a.run, sport));
-      html += renderLeaderboard(rk, entries, sport, false);
+      const roundSport = sport === 'dock' ? rk.split('|')[0] : sport;
+      const roundTitle = sport === 'dock' ? sportLabel(roundSport) + ' — ' + rk.slice(rk.indexOf('|')+1) : rk;
+      const entries = rounds[rk].sort((a,b) => getRankValue(b.run, roundSport) - getRankValue(a.run, roundSport));
+      html += renderLeaderboard(roundTitle, entries, roundSport, false);
     });
   }
 
@@ -1051,7 +1053,7 @@ function renderLeaderboard(title, entries, sport, showSub) {
       <td><span class="rank-dog-name">${entry.dog.name}</span>${classBadge}
         ${entry.dog.breed ? '<div class="rank-sub">'+entry.dog.breed+'</div>' : ''}
       </td>`;
-    if (showSub) html += `<td class="rank-sub">${entry.run.event||'—'}</td>`;
+    if (showSub) html += `<td class="rank-sub">${sport === 'dock' ? sportLabel(entry.run._sub) + ' · ' : ''}${entry.run.event||'—'}</td>`;
     html += `<td class="rank-pts">${val}</td></tr>`;
   });
 
@@ -1065,6 +1067,7 @@ function getMetricLabel(sport) {
   if (sport==='ff') return 'Score';
   if (sport==='tr') return 'Speed';
   if (sport==='shed') return 'Result';
+  if (sport==='dock') return 'Title points';
   return 'Points';
 }
 
@@ -1095,6 +1098,21 @@ function getDogClassForYear(dog, year) {
   return best || dog.class || '';
 }
 
+// Display ordering only: annual totals and scoring formulas remain unchanged.
+let currentAnnualSort = 'points';
+function selectAnnualSort(sort) {
+  currentAnnualSort = sort;
+  renderAnnualRankings();
+}
+function orderAnnualEntries(entries, sport) {
+  const ordered = [...entries];
+  if (currentAnnualSort === 'points') return ordered.sort((a,b) => b.totalPts-a.totalPts);
+  if (sport === 'tr' || sport === 'tr_speed') return ordered.sort((a,b) => (b.topSpeed||0)-(a.topSpeed||0));
+  if (sport === 'ss') return ordered.sort((a,b) => (a.bestTime ?? Infinity)-(b.bestTime ?? Infinity));
+  if (sport === 'lj' || sport === 'gj') return ordered.sort((a,b) => (b.bestDist||0)-(a.bestDist||0));
+  if (sport === 'ff') return ordered.sort((a,b) => (b.bestScore||0)-(a.bestScore||0));
+  return ordered.sort((a,b) => b.totalPts-a.totalPts);
+}
 function renderAnnualRankings() {
   const el = document.getElementById('rankAnnualContent');
   const sport = currentAnnualSport;
@@ -1122,9 +1140,7 @@ function renderAnnualRankings() {
     let ljPts=0, ssPts=0, gjPts=0, ffPts=0;
 
     runs.forEach(r => {
-      const p = sport === 'shed'
-        ? (r.qualifying === 'Y' ? 10 : 0) + Number(r.winPts ?? 0)
-        : Number(r.pts ?? 0) + Number(r.win ?? 0);
+      const p = (r.pts||0) + (r.win||0);
       totalPts += p;
       if (r._sub==='lj'||sport==='lj') { ljPts += p; const d=(r.bestFeet||0)*12+(r.bestInches||0); if(d>bestDist) bestDist=d; }
       if (r._sub==='ss'||sport==='ss') { ssPts += p; if(r.time && r.time < bestTime) bestTime=r.time; }
@@ -1153,7 +1169,13 @@ function renderAnnualRankings() {
   // Sort by total pts
   dogTotals.sort((a,b) => b.totalPts - a.totalPts);
 
-  let html = '';
+  const metricLabel = sport === 'tr' ? 'Speed' : sport === 'shed' ? '' : 'Best performance';
+  let html = `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0" role="group" aria-label="Annual ranking order">
+    <span>Sort by:</span>
+    <button type="button" class="year-btn ${currentAnnualSort==='points'?'active':''}" aria-pressed="${currentAnnualSort==='points'}" onclick="selectAnnualSort('points')">Points</button>
+    ${metricLabel ? `<button type="button" class="year-btn ${currentAnnualSort==='performance'?'active':''}" aria-pressed="${currentAnnualSort==='performance'}" onclick="selectAnnualSort('performance')">${metricLabel}</button>` : ''}
+    <span style="color:var(--muted);font-size:12px">Highest first; swim times fastest first. Ties retain their existing order.</span>
+  </div>`;
 
   if (sport === 'dock') {
     // Overall combined
@@ -1173,10 +1195,6 @@ function renderAnnualRankings() {
     });
   } else {
     html += renderAnnualTable(sportLabel(sport)+' Rankings — '+currentYear, dogTotals, sport, currentYear);
-    if (sport==='tr') {
-      const speedSorted = [...dogTotals].sort((a,b)=>(b.topSpeed||0)-(a.topSpeed||0));
-      html += renderAnnualTable('Top Speed — '+currentYear, speedSorted, 'tr_speed', currentYear);
-    }
   }
 
   el.innerHTML = html;
@@ -1184,6 +1202,7 @@ function renderAnnualRankings() {
 
 function renderAnnualTable(title, entries, sport, year) {
   if (!entries.length) return '';
+  entries = orderAnnualEntries(entries, sport);
   let html = '';
 
   // ── Overall ──

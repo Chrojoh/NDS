@@ -612,10 +612,10 @@ function renderTimedRecall(dog) {
 
   let progressSentence = '';
   if (!next) {
-    progressSentence = `<span style="color:var(--accent);font-weight:500;">All titles earned!</span> ${tr.totalPts.toFixed(1)} total points.`;
+    progressSentence = `<span style="color:var(--accent);font-weight:500;">All titles earned!</span> ${tr.totalPts.toFixed(2)} total points.`;
   } else {
     const needed = (next.pts - tr.totalPts).toFixed(1);
-    progressSentence = `<strong>${tr.totalPts.toFixed(1)}</strong> of <strong>${next.pts}</strong> pts &nbsp;·&nbsp; <strong>${needed} pts needed</strong> for <span class="next-title-name">${next.name}</span>`;
+    progressSentence = `<strong>${tr.totalPts.toFixed(2)}</strong> of <strong>${next.pts}</strong> pts &nbsp;·&nbsp; <strong>${needed} pts needed</strong> for <span class="next-title-name">${next.name}</span>`;
     if (current) progressSentence += `<span style="color:var(--muted);font-size:12px;"> &nbsp;(currently: ${current.name})</span>`;
   }
 
@@ -636,7 +636,7 @@ function renderTimedRecall(dog) {
         <span class="sport-name">⚡ Timed Recall</span>
         <a class="sport-rules-link" href="${RULES_LINKS.timedrecall}" target="_blank" rel="noopener">Official Rules</a>
       </div>
-      <span class="sport-pts">${tr.totalPts.toFixed(1)} pts</span>
+      <span class="sport-pts">${tr.totalPts.toFixed(2)} pts</span>
     </div>
     <div class="event-row">
       <div class="event-header-row">
@@ -1122,7 +1122,9 @@ function renderAnnualRankings() {
     let ljPts=0, ssPts=0, gjPts=0, ffPts=0;
 
     runs.forEach(r => {
-      const p = (r.pts||0) + (r.win||0);
+      const p = sport === 'shed'
+        ? (r.qualifying === 'Y' ? 10 : 0) + Number(r.winPts ?? 0)
+        : Number(r.pts ?? 0) + Number(r.win ?? 0);
       totalPts += p;
       if (r._sub==='lj'||sport==='lj') { ljPts += p; const d=(r.bestFeet||0)*12+(r.bestInches||0); if(d>bestDist) bestDist=d; }
       if (r._sub==='ss'||sport==='ss') { ssPts += p; if(r.time && r.time < bestTime) bestTime=r.time; }
@@ -1226,7 +1228,7 @@ function buildRankTableInner(title, entries, sport, showClass, year) {
     html += `<tr class="${cls}">
       <td class="rank-num">${ordinal(rank)}</td>
       <td><span class="rank-dog-name">${e.dog.name}</span>${classBadge}${breedSub}</td>
-      <td class="rank-pts">${e.totalPts}</td>
+      <td class="rank-pts">${Number(e.totalPts ?? 0).toFixed(2)}</td>
       <td class="rank-pts" style="color:var(--muted)">${metric}</td>
     </tr>`;
   });
